@@ -21,6 +21,7 @@ typedef struct s_data
 	char **enviroment_ptr;
 	int input_file_fd;
 	int output_file_fd;
+	char **path;
 } t_data;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -29,5 +30,9 @@ typedef struct s_data
 
 //Input check
 bool	is_input_valid(int argument_count, char **argument_vector);
+
+//STRUCT SETUP
+void setup_struct(t_data *data, int argument_count, char **arguemt_vector,
+                  char **enviroment_ptr);
 
 #endif // PIPEX_H

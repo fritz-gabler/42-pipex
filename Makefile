@@ -15,12 +15,13 @@ LIBS_NAME		=			./libs/libs.a
 ###############################################################################
 ###############################################################################
 
-VPATH			=	src src/input_check
+VPATH				=	src src/input_check src/setup_struct
 
-SRC_MAIN		:=	pipex.c
-SRC_INPUT_CHECK	:=	is_input_valid.c
+SRC_MAIN			:=	pipex.c
+SRC_INPUT_CHECK		:=	is_input_valid.c
+SRC_SETUP_STRUCT	:=	setup_struct.c
 
-SOURCE			:=	$(SRC_MAIN) $(SRC_INPUT_CHECK)
+SOURCE				:=	$(SRC_MAIN) $(SRC_INPUT_CHECK) $(SRC_SETUP_STRUCT)
 
 ###############################################################################
 ###############################################################################
