@@ -19,7 +19,7 @@ VPATH				=	src src/input_check src/setup_struct
 
 SRC_MAIN			:=	pipex.c
 SRC_INPUT_CHECK		:=	is_input_valid.c
-SRC_SETUP_STRUCT	:=	setup_struct.c
+SRC_SETUP_STRUCT	:=	setup_struct.c get_all_paths.c
 
 SOURCE				:=	$(SRC_MAIN) $(SRC_INPUT_CHECK) $(SRC_SETUP_STRUCT)
 

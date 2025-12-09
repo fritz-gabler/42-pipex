@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////STRUCTS/////////////////////////////////////
@@ -34,5 +35,6 @@ bool	is_input_valid(int argument_count, char **argument_vector);
 //STRUCT SETUP
 void setup_struct(t_data *data, int argument_count, char **arguemt_vector,
                   char **enviroment_ptr);
+char **get_all_paths(char **envp);
 
 #endif // PIPEX_H
