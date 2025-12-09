@@ -1,0 +1,20 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-c",
+      "-I./include",
+      "-I./libs/include",
+      "-o",
+      "_obj/pipex.o",
+      "src/pipex.c"
+    ],
+    "directory": "/Users/fritzgabler/Documents/megaProjects/42-pipex",
+    "file": "/Users/fritzgabler/Documents/megaProjects/42-pipex/src/pipex.c",
+    "output": "/Users/fritzgabler/Documents/megaProjects/42-pipex/_obj/pipex.o"
+  }
+]
