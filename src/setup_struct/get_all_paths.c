@@ -9,8 +9,8 @@ char **get_all_paths(char **envp)
 	char **all_paths;
 
 	pos_of_path = get_pos_of_path_env(envp);
-	all_paths = ft_split(envp[pos_of_path], ':');
-	printf("%s\n", all_paths[1]);
+	all_paths = ft_split((envp[pos_of_path] + 5), ':');
+	//check for fail
 	return (all_paths);
 }
 
