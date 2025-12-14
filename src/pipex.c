@@ -6,7 +6,7 @@
 /*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/09 12:44:48 by fritzgabler      ###   ########.fr       */
+/*   Updated: 2025/12/14 10:25:06 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 	}
 
 	setup_struct(&data, argument_count, arguemt_vector, enviroment_ptr);
-	
+	while (data.num_of_current_command != data.number_of_commands)
+	{
+		resolve_path(&data);
+		//create Child
+		//replace_stdin_of_child check if child
+		//replace_stdout_of_child check if child
+		//execute_command
+		data.num_of_current_command++;
+	}
+	//wait for children
+	//clear_data
 	return (0);
 }

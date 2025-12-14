@@ -7,7 +7,7 @@ NAME			=			pipex
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra # -g #-fsanitize=address -g
+CFLAGS			=			-Wall -Werror -Wextra  -g #-fsanitize=address -g
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
@@ -15,13 +15,17 @@ LIBS_NAME		=			./libs/libs.a
 ###############################################################################
 ###############################################################################
 
-VPATH				=	src src/input_check src/setup_struct
+VPATH					=	src src/input_check src/setup_struct			\
+							src/command_handeling
 
-SRC_MAIN			:=	pipex.c
-SRC_INPUT_CHECK		:=	is_input_valid.c
-SRC_SETUP_STRUCT	:=	setup_struct.c get_all_paths.c
+SRC_MAIN				:=	pipex.c
+SRC_INPUT_CHECK			:=	is_input_valid.c
+SRC_SETUP_STRUCT		:=	setup_struct.c get_all_paths.c get_file_fd.c	\
+							set_pipe_fds.c get_commands.c
+SRC_COMMAND_HANDELING	:=	resolve_path.c
 
-SOURCE				:=	$(SRC_MAIN) $(SRC_INPUT_CHECK) $(SRC_SETUP_STRUCT)
+SOURCE					:=	$(SRC_MAIN) $(SRC_INPUT_CHECK)					\
+							$(SRC_SETUP_STRUCT) $(SRC_COMMAND_HANDELING)
 
 ###############################################################################
 ###############################################################################
