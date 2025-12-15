@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/14 10:25:18 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/15 08:12:34 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_data
 	int		num_of_current_command;
 	char	**commands;
 	char	*path_to_executable;
+	int		child_pid;
 }	t_data;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -67,6 +68,7 @@ char **get_commands(int number_of_commands, char **arguemt_vector);
 
 //COMMAND HANDELING
 void resolve_path(t_data *data);
+void create_child(t_data *data);
 
 
 #endif // PIPEX_H
