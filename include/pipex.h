@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/15 10:13:58 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:30:35 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void replace_stdin_of_child(t_data *data);
 void replace_stdout_of_child(t_data *data);
 void replace_stdin_save(int file_fd_to_replace_with);
 void replace_stdout_save(int file_fd_to_replace_with);
+void execute_command(t_data *data);
 
 
 #endif // PIPEX_H
