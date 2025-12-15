@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/15 08:12:34 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/15 10:13:58 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ char **get_commands(int number_of_commands, char **arguemt_vector);
 //COMMAND HANDELING
 void resolve_path(t_data *data);
 void create_child(t_data *data);
+void replace_stdin_of_child(t_data *data);
+void replace_stdout_of_child(t_data *data);
+void replace_stdin_save(int file_fd_to_replace_with);
+void replace_stdout_save(int file_fd_to_replace_with);
 
 
 #endif // PIPEX_H
