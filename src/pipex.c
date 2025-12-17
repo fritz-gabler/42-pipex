@@ -6,11 +6,12 @@
 /*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/15 08:11:23 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/16 11:24:16 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <stdio.h>
 
 int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 {
@@ -27,12 +28,12 @@ int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 	{
 		resolve_path(&data);
 		create_child(&data);
-		//create Child
-		//replace_stdin_of_child check if child
-		//replace_stdout_of_child check if child
-		//execute_command
-		//Remove path to executable
+//		replace_stdin_of_child(&data);
+//		replace_stdout_of_child(&data);
+		execute_command(&data);
 		data.num_of_current_command++;
+		//close_not_needed_pipends
+		//Remove path to executable
 	}
 	//wait for children
 	//clear_data
