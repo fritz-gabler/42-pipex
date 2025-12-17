@@ -7,7 +7,7 @@ void execute_command(t_data *data)
 	char **commands;
 
 	if (data->child_pid != 0)
-	return;
+		return;
 
 	// NULL got to be replaced with the flags of the command
 	commands = ft_split(data->commands[data->num_of_current_command], ' ');
