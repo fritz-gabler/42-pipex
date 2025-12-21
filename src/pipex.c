@@ -6,7 +6,7 @@
 /*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/16 11:24:16 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/18 14:07:19 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 {
 	t_data data;
+
 	if (is_input_valid(argument_count, arguemt_vector) == false)
 	{
 		write(STDERR_FILENO,
@@ -24,12 +25,12 @@ int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 	}
 
 	setup_struct(&data, argument_count, arguemt_vector, enviroment_ptr);
-	while (data.num_of_current_command != data.number_of_commands)
+	while (data.num_of_current_command < data.number_of_commands)
 	{
 		resolve_path(&data);
 		create_child(&data);
-//		replace_stdin_of_child(&data);
-//		replace_stdout_of_child(&data);
+		replace_stdin_of_child(&data);
+		replace_stdout_of_child(&data);
 		execute_command(&data);
 		data.num_of_current_command++;
 		//close_not_needed_pipends
