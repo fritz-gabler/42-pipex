@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/16 11:04:40 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/22 08:01:03 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ bool	is_input_valid(int argument_count, char **argument_vector);
 void	setup_struct(t_data *data, int argument_count, char **arguemt_vector,
 			char **enviroment_ptr);
 char	**get_all_paths(char **envp);
-int	get_file_fd(char *infile_str, int flags);
+int get_outfile_fd(char *infile_str);
+int get_infile_fd(char *infile_str);
 void	set_pipe_fds(t_data *data);
 char **get_commands(int number_of_commands, char **arguemt_vector);
 
