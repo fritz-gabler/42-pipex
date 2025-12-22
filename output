@@ -1,0 +1,13 @@
+Makefile
+_obj
+a.out
+compile_commands.json
+include
+libs
+lw
+output
+path
+pipex
+src
+test
+test.c

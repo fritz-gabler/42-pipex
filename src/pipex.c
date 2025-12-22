@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <stdio.h>
 
 int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 {
@@ -32,6 +33,8 @@ int	main(int argument_count, char **arguemt_vector, char **enviroment_ptr)
 		replace_stdout_of_child(&data);
 		execute_command(&data);
 		data.num_of_current_command++;
+		//close_not_needed_pipends
+		//Remove path to executable
 	}
 	//wait for children
 	//clear_data
