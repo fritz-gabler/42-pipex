@@ -25,7 +25,7 @@ void	setup_second_child(t_data *data, char **argv)
 	second_child = &data->second_child;
 	second_child->execve_argv = ft_split(argv[3], ' ');
 	second_child->path = get_resolved_path(second_child->execve_argv[0], envp);
-	second_child->input_file_fd = open(argv[4],
+	second_child->output_file_fd = open(argv[4],
 									O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	fail_check(data, &data->second_child);
 }
