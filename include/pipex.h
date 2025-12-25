@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/25 11:17:45 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/25 12:05:28 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define WRITE 1
 # define CHILD 0
 # define IS_CORRECT_PATH 0
+# define FIRST_CHILD 0
+# define SECOND_CHILD 1
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////STRUCTS/////////////////////////////////////
@@ -49,7 +51,7 @@ typedef struct s_data
 	t_child	first_child;
 	t_child	second_child;
 	int		pipe_fds[2];
-	int		child_pid;
+	int		child_pids[2];
 	char	**envp;
 }	t_data;
 
@@ -85,7 +87,11 @@ void	set_pipe_fds(t_data *data);
 char **get_commands(int number_of_commands, char **arguemt_vector);
 
 //CHILD HANDELING
-void first_child(t_data *data);
+void	first_child(t_data *data);
+void	second_child(t_data *data);
+void	fork_save(t_data *data, int child);
+
+
 
 //COMMAND HANDELING
 void resolve_path(t_data *data);
