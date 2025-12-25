@@ -11,6 +11,7 @@ void first_child(t_data *data)
 	set_stdin_of_first_child(data);
 	set_stdout_of_first_child(data);
 	execve(first_child->path, first_child->execve_argv, data->envp);
+	exit_clean(data, __FILE__, __LINE__ -1);
 }
 
 static void set_stdin_of_first_child(t_data *data)
