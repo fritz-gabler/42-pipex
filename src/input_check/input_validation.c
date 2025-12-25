@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_input_valid.c                                   :+:      :+:    :+:   */
+/*   input_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:29 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/09 10:02:17 by fritzgabler      ###   ########.fr       */
+/*   Updated: 2025/12/22 15:06:50 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 static bool	is_num_of_args_correct(int argument_count);
-static bool	does_input_file_exists(char *file_name);
 
-bool	is_input_valid(int argument_count, char **argument_vector)
+void	input_validation(int argument_count)
 {
-	if (is_num_of_args_correct(argument_count) == false)
-		return (false);
-	if (does_input_file_exists(argument_vector[1]) == false)
-		return (false);
-	return (true);
+	if (is_num_of_args_correct(argument_count) == true)
+		return	;
+	write(STDERR_FILENO,
+		"Invalid input, correct usage: ./pipex file1 cmd1 cmd2 file2\n", 61);
+	exit(1);
 }
 
 static bool	is_num_of_args_correct(int argument_count)
@@ -29,15 +28,4 @@ static bool	is_num_of_args_correct(int argument_count)
 	if (argument_count == 5)
 		return (true);
 	return (false);
-}
-
-static bool	does_input_file_exists(char *file_name)
-{
-	int	file_fd;
-
-	file_fd = open(file_name, O_RDONLY);
-	if (file_fd == -1)
-		return (false);
-	close(file_fd);
-	return (true);
 }
