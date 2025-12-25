@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/22 08:01:03 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/25 09:29:46 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,32 +35,44 @@
 ///////////////////////////////////STRUCTS/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-typedef struct s_data
+
+typedef struct s_child
 {
-	int		pipe_fds[2];
-	int		arguemtn_count;
-	char	**arguemt_vector;
-	char	**enviroment_ptr;
+	char	**execve_argv;
+	char	*path;
 	int		input_file_fd;
 	int		output_file_fd;
-	char	**path;
-	int		number_of_commands;
-	int		num_of_current_command;
-	char	**commands;
-	char	*path_to_executable;
+}	t_child;
+
+typedef struct s_data
+{
+	t_child	first_child;
+	t_child	second_child;
+	int		pipe_fds[2];
 	int		child_pid;
 }	t_data;
+
+typedef struct s_path_sizes
+{
+	size_t	command_len;
+	size_t	path;
+	size_t	path_to_executable_len;
+}	t_path_sizes;
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////FUNCTION DECLATATION/////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
 //Input check
-bool	is_input_valid(int argument_count, char **argument_vector);
+void	input_validation(int argument_count);
 
 //STRUCT SETUP
-void	setup_struct(t_data *data, int argument_count, char **arguemt_vector,
-			char **enviroment_ptr);
+void setup_struct(t_data *data, int argc, char **argv, char **envp);
+char	*get_resolved_path(char *command, char **envp);
+void	initialize_data(t_data *data);
+
 char	**get_all_paths(char **envp);
 int get_outfile_fd(char *infile_str);
 int get_infile_fd(char *infile_str);
