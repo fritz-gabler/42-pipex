@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/25 09:29:46 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/25 10:38:02 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,11 @@ typedef struct s_path_sizes
 void	input_validation(int argument_count);
 
 //STRUCT SETUP
-void setup_struct(t_data *data, int argc, char **argv, char **envp);
+void	setup_struct(t_data *data, int argc, char **argv, char **envp);
 char	*get_resolved_path(char *command, char **envp);
 void	initialize_data(t_data *data);
+void	setup_first_child(t_data *data, char **argv, char **envp);
+void	setup_second_child(t_data *data, char **argv, char **envp);
 
 char	**get_all_paths(char **envp);
 int get_outfile_fd(char *infile_str);
