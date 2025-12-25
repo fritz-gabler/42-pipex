@@ -3,10 +3,12 @@
 
 static void fail_check(t_data *data, t_child *child);
 
-void setup_first_child(t_data *data, char **argv, char **envp)
+void	setup_first_child(t_data *data, char **argv)
 {
 	t_child *first_child;
+	char	**envp;
 
+	envp = data->envp;
 	first_child = &data->first_child;
 	first_child->execve_argv = ft_split(argv[2], ' ');
 	first_child->path = get_resolved_path(first_child->execve_argv[0], envp);
@@ -14,10 +16,12 @@ void setup_first_child(t_data *data, char **argv, char **envp)
 	fail_check(data, &data->first_child);
 }
 
-void setup_second_child(t_data *data, char **argv, char **envp)
+void	setup_second_child(t_data *data, char **argv)
 {
 	t_child *second_child;
+	char	**envp;
 
+	envp = data->envp;
 	second_child = &data->second_child;
 	second_child->execve_argv = ft_split(argv[3], ' ');
 	second_child->path = get_resolved_path(second_child->execve_argv[0], envp);
@@ -26,7 +30,7 @@ void setup_second_child(t_data *data, char **argv, char **envp)
 	fail_check(data, &data->second_child);
 }
 
-static void fail_check(t_data *data, t_child *child)
+static void	fail_check(t_data *data, t_child *child)
 {
 	if (data->pipe_fds[0] == -1 || data->pipe_fds[1] == -1)
 		exit_clean(data, __FILE__, __LINE__);

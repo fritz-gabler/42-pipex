@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/25 10:38:02 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/25 11:17:45 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_data
 	t_child	second_child;
 	int		pipe_fds[2];
 	int		child_pid;
+	char	**envp;
 }	t_data;
 
 typedef struct s_path_sizes
@@ -70,16 +71,21 @@ void	input_validation(int argument_count);
 
 //STRUCT SETUP
 void	setup_struct(t_data *data, int argc, char **argv, char **envp);
+
 char	*get_resolved_path(char *command, char **envp);
 void	initialize_data(t_data *data);
-void	setup_first_child(t_data *data, char **argv, char **envp);
-void	setup_second_child(t_data *data, char **argv, char **envp);
+void	setup_first_child(t_data *data, char **argv);
+void	setup_second_child(t_data *data, char **argv);
+
 
 char	**get_all_paths(char **envp);
 int get_outfile_fd(char *infile_str);
 int get_infile_fd(char *infile_str);
 void	set_pipe_fds(t_data *data);
 char **get_commands(int number_of_commands, char **arguemt_vector);
+
+//CHILD HANDELING
+void first_child(t_data *data);
 
 //COMMAND HANDELING
 void resolve_path(t_data *data);
