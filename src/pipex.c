@@ -6,7 +6,7 @@
 /*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/25 12:17:36 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/25 12:39:57 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int argc, char **argv, char **envp)
 	if (data.child_pids[FIRST_CHILD])
 		first_child(&data);
 	fork_save(&data, SECOND_CHILD);
+	if (data.child_pids[SECOND_CHILD])
 		second_child(&data);
 	close(data.pipe_fds[WRITE]);
 	close(data.pipe_fds[READ]);

@@ -6,7 +6,8 @@ void	initialize_data(t_data *data)
 {
 	data->pipe_fds[0] = -1;
 	data->pipe_fds[1] = -1;
-	data->child_pid = -1;
+	data->child_pids[0] = -1;
+	data->child_pids[1] = -1;
 	initialize_child(&data->first_child);
 	initialize_child(&data->second_child);
 }
