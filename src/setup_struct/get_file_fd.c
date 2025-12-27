@@ -6,15 +6,15 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:57:04 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/22 07:59:54 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/26 18:41:39 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int get_infile_fd(char *infile_str)
+int	get_infile_fd(char *infile_str)
 {
-	int file_fd;
+	int	file_fd;
 
 	file_fd = open(infile_str, O_RDONLY);
 	if (file_fd == -1)
@@ -22,9 +22,9 @@ int get_infile_fd(char *infile_str)
 	return (file_fd);
 }
 
-int get_outfile_fd(char *infile_str)
+int	get_outfile_fd(char *infile_str)
 {
-	int file_fd;
+	int	file_fd;
 
 	file_fd = open(infile_str, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (file_fd == -1)

@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_resolved_path.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 18:23:20 by fgabler           #+#    #+#             */
+/*   Updated: 2025/12/26 18:38:49 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "pipex.h"
 #include <stdio.h>
 
-static t_path_sizes get_path_to_executable_len(char *command, char *path);
-static char *get_path_to_executable(char *command, char *path);
+static t_path_sizes	get_path_to_executable_len(char *command, char *path);
+static	char	*get_path_to_executable(char *command, char *path);
 
-char *get_resolved_path(char *command, char **envp)
+char	*get_resolved_path(char *command, char **envp)
 {
-	int i;
-	char **all_paths;
-	char *path_to_executable;
-
+	int		i;
+	char	**all_paths;
+	char	*path_to_executable;
 
 	i = 0;
 	all_paths = get_all_paths(envp);
@@ -30,9 +41,9 @@ char *get_resolved_path(char *command, char **envp)
 	return (NULL);
 }
 
-static char *get_path_to_executable(char *command, char *path)
+static char	*get_path_to_executable(char *command, char *path)
 {
-	char *path_to_executable;
+	char			*path_to_executable;
 	t_path_sizes	sizes;
 
 	sizes = get_path_to_executable_len(command, path);
@@ -40,14 +51,14 @@ static char *get_path_to_executable(char *command, char *path)
 	ft_memcpy(path_to_executable, path, sizes.path);
 	path_to_executable[sizes.path] = '/';
 	ft_memcpy(path_to_executable + sizes.path + 1, command, sizes.command_len);
-	path_to_executable[sizes.path_to_executable_len] = '\0'; 
+	path_to_executable[sizes.path_to_executable_len] = '\0';
 	return (path_to_executable);
 }
 
-static t_path_sizes get_path_to_executable_len(char *command, char *path)
+static t_path_sizes	get_path_to_executable_len(char *command, char *path)
 {
 	t_path_sizes	sizes;
-	
+
 	sizes.command_len = ft_strlen(command);
 	sizes.path = ft_strlen(path);
 	sizes.path_to_executable_len = sizes.command_len + sizes.path + 2;
