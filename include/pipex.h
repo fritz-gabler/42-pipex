@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/25 12:05:28 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/27 09:03:16 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,8 @@ void replace_stdout_save(int file_fd_to_replace_with);
 void execute_command(t_data *data);
 
 //ERROR HANDELING
-void exit_clean(t_data *data, char *error, int line);
+
+void exit_clean(t_data *data, char *error, int error_code);
 
 
 #endif // PIPEX_H
