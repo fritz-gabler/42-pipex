@@ -22,9 +22,8 @@ VPATH					=	src src/input_check src/setup_struct			\
 SRC_MAIN				:=	pipex.c
 SRC_INPUT_CHECK			:=	input_validation.c
 SRC_SETUP_STRUCT		:=	setup_struct.c get_all_paths.c get_file_fd.c	\
-							set_pipe_fds.c get_commands.c					\
 							get_resolved_path.c initialize_data.c			\
-							setup_children.c
+							set_pipe_fds.c setup_children.c
 SRC_ERROR_HANDLING		:=	exit_clean.c
 SRC_CHILD_HANDELING		:=	first_child.c second_child.c fork_save.c
 
