@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/27 09:03:16 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/31 12:59:12 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,8 @@ void execute_command(t_data *data);
 
 void exit_clean(t_data *data, char *error, int error_code);
 
+// CLEANUP
+
+void	clean_data(t_data *data);
 
 #endif // PIPEX_H
