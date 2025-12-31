@@ -1,14 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit_clean.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/31 12:58:35 by fgabler           #+#    #+#             */
+/*   Updated: 2025/12/31 13:00:46 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
-#include <errno.h>
 #include <stdio.h>
-#include <libft.h>
 
 void exit_clean(t_data *data, char *error, int error_code)
 {
-	(void) data;
-
 	perror(error);
-	//close all fds
-	//free all memory
+	clean_data(data);
 	exit(error_code);
 }
+

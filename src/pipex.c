@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/25 12:39:57 by fgabler          ###   ########.fr       */
+/*   Updated: 2025/12/28 19:16:11 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int	main(int argc, char **argv, char **envp)
 	fork_save(&data, SECOND_CHILD);
 	if (data.child_pids[SECOND_CHILD])
 		second_child(&data);
+
 	close(data.pipe_fds[WRITE]);
 	close(data.pipe_fds[READ]);
 	waitpid(data.child_pids[FIRST_CHILD], NULL, 0);
 	waitpid(data.child_pids[SECOND_CHILD], NULL, 0);
+
 	return (0);
 }
