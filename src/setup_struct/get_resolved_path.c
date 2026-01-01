@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 18:23:20 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/26 18:38:49 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/01 12:47:12 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,13 @@ char	*get_resolved_path(char *command, char **envp)
 		path_to_executable = get_path_to_executable(command, all_paths[i]);
 		if (access(path_to_executable, X_OK) == IS_CORRECT_PATH)
 		{
-			// FREE all pathes
+			free_dubble_array(all_paths);
 			return (path_to_executable);
 		}
 		free(path_to_executable);
 		i++;
 	}
-	//free all path
-	//Fail check
+	free_dubble_array(all_paths);
 	return (NULL);
 }
 
@@ -47,7 +46,7 @@ static char	*get_path_to_executable(char *command, char *path)
 	t_path_sizes	sizes;
 
 	sizes = get_path_to_executable_len(command, path);
-	path_to_executable = ft_calloc(sizeof(char), sizes.path_to_executable_len);
+	path_to_executable = ft_calloc(sizeof(char), sizes.path_to_executable_len + 1);
 	ft_memcpy(path_to_executable, path, sizes.path);
 	path_to_executable[sizes.path] = '/';
 	ft_memcpy(path_to_executable + sizes.path + 1, command, sizes.command_len);
