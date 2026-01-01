@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/28 19:16:11 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/01 10:18:29 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	main(int argc, char **argv, char **envp)
 	close(data.pipe_fds[READ]);
 	waitpid(data.child_pids[FIRST_CHILD], NULL, 0);
 	waitpid(data.child_pids[SECOND_CHILD], NULL, 0);
-
+	clean_data(&data);
 	return (0);
 }
