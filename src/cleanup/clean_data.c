@@ -6,16 +6,16 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:58:36 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/31 13:01:02 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/02 14:56:37 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include "libft.h"
 
-static void close_pipes(t_data *data);
-static void close_in_and_outfile(t_child *child);
-static void clean_child(t_child *child);
+static void	close_pipes(t_data *data);
+static void	close_in_and_outfile(t_child *child);
+static void	clean_child(t_child *child);
 
 void	clean_data(t_data *data)
 {
@@ -48,4 +48,3 @@ static void	close_in_and_outfile(t_child *child)
 	if (child->output_file_fd != -1)
 		close(child->output_file_fd);
 }
-

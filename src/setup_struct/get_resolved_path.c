@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 18:23:20 by fgabler           #+#    #+#             */
-/*   Updated: 2026/01/01 12:47:12 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/02 16:38:04 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 static t_path_sizes	get_path_to_executable_len(char *command, char *path);
-static	char	*get_path_to_executable(char *command, char *path);
+static char			*get_path_to_executable(char *command, char *path);
 
 char	*get_resolved_path(char *command, char **envp)
 {
@@ -46,7 +46,8 @@ static char	*get_path_to_executable(char *command, char *path)
 	t_path_sizes	sizes;
 
 	sizes = get_path_to_executable_len(command, path);
-	path_to_executable = ft_calloc(sizeof(char), sizes.path_to_executable_len + 1);
+	path_to_executable = ft_calloc(sizeof(char),
+			sizes.path_to_executable_len + 1);
 	ft_memcpy(path_to_executable, path, sizes.path);
 	path_to_executable[sizes.path] = '/';
 	ft_memcpy(path_to_executable + sizes.path + 1, command, sizes.command_len);

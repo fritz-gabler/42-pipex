@@ -6,7 +6,7 @@
 /*   By: fritzgabler <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:29 by fritzgabler       #+#    #+#             */
-/*   Updated: 2025/12/22 15:06:50 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/02 16:38:37 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	is_num_of_args_correct(int argument_count);
 void	input_validation(int argument_count)
 {
 	if (is_num_of_args_correct(argument_count) == true)
-		return	;
+		return ;
 	write(STDERR_FILENO,
 		"Invalid input, correct usage: ./pipex file1 cmd1 cmd2 file2\n", 61);
 	exit(1);
