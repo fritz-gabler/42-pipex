@@ -16,22 +16,21 @@ LIBS_NAME		=			./libs/libs.a
 ###############################################################################
 
 VPATH					=	src src/input_check src/setup_struct			\
-							src/command_handeling src/error_handling
+							src/command_handeling src/error_handling		\
+							src/child_handeling src/cleanup
 
 SRC_MAIN				:=	pipex.c
-SRC_INPUT_CHECK			:=	is_input_valid.c
+SRC_INPUT_CHECK			:=	input_validation.c
 SRC_SETUP_STRUCT		:=	setup_struct.c get_all_paths.c get_file_fd.c	\
-							set_pipe_fds.c get_commands.c
-SRC_COMMAND_HANDELING	:=	resolve_path.c create_child.c					\
-							replace_stdin_of_child.c						\
-							replace_stdout_of_child.c						\
-							replace_stdout_save.c							\
-							replace_stdin_save.c execute_command.c
-ERROR_HANDELING			:=	exit_clean.c
+							get_resolved_path.c initialize_data.c			\
+							set_pipe_fds.c setup_children.c
+SRC_ERROR_HANDLING		:=	exit_clean.c
+SRC_CHILD_HANDELING		:=	first_child.c second_child.c fork_save.c
+SRC_CLEANUP				:=	clean_data.c
 
 SOURCE					:=	$(SRC_MAIN) $(SRC_INPUT_CHECK)					\
-							$(SRC_SETUP_STRUCT) $(SRC_COMMAND_HANDELING)	\
-							$(ERROR_HANDELING)
+							$(SRC_SETUP_STRUCT) $(SRC_ERROR_HANDLING)		\
+							$(SRC_CHILD_HANDELING) $(SRC_CLEANUP)
 
 ###############################################################################
 ###############################################################################

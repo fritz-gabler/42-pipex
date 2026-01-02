@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_stdout_of_child.c                          :+:      :+:    :+:   */
+/*   initialize_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 11:13:01 by fgabler           #+#    #+#             */
-/*   Updated: 2025/12/18 14:00:32 by fgabler          ###   ########.fr       */
+/*   Created: 2025/12/26 18:31:54 by fgabler           #+#    #+#             */
+/*   Updated: 2025/12/26 18:31:55 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-#include <stdio.h>
 
-static bool is_last_child(const t_data *data);
+static void	initialize_child(t_child *child);
 
-void replace_stdout_of_child(t_data *data)
+void	initialize_data(t_data *data)
 {
-	if (data->child_pid != 0)
-		return ;
-	if (is_last_child(data) == true)
-	{
-		replace_stdout_save(data->output_file_fd);
-	}
-	else
-		replace_stdout_save(data->pipe_fds[WRITE]);
+	data->pipe_fds[0] = -1;
+	data->pipe_fds[1] = -1;
+	data->child_pids[0] = -1;
+	data->child_pids[1] = -1;
+	initialize_child(&data->first_child);
+	initialize_child(&data->second_child);
 }
 
-static bool is_last_child(const t_data *data)
+static void	initialize_child(t_child *child)
 {
-	if (data->num_of_current_command == data->number_of_commands - 1)
-		return (true);
-	return (false);
+	child->input_file_fd = -1;
+	child->output_file_fd = -1;
+	child->execve_argv = NULL;
+	child->path = NULL;
 }
