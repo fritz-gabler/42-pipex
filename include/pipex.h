@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2026/01/01 11:25:14 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/02 16:48:11 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <stdlib.h>
 # include <sys/wait.h>
 
-
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////DEFINES/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -38,7 +37,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////STRUCTS/////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
-
 
 typedef struct s_child
 {
@@ -64,8 +62,6 @@ typedef struct s_path_sizes
 	size_t	path_to_executable_len;
 }	t_path_sizes;
 
-
-
 ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////FUNCTION DECLATATION/////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -81,35 +77,30 @@ void	initialize_data(t_data *data);
 void	setup_first_child(t_data *data, char **argv);
 void	setup_second_child(t_data *data, char **argv);
 
-
 char	**get_all_paths(char **envp);
-int get_outfile_fd(char *infile_str);
-int get_infile_fd(char *infile_str);
+int		get_outfile_fd(char *infile_str);
+int		get_infile_fd(char *infile_str);
 void	set_pipe_fds(t_data *data);
-char **get_commands(int number_of_commands, char **arguemt_vector);
+char	**get_commands(int number_of_commands, char **arguemt_vector);
 
 //CHILD HANDELING
 void	first_child(t_data *data);
 void	second_child(t_data *data);
 void	fork_save(t_data *data, int child);
 
-
-
 //COMMAND HANDELING
-void resolve_path(t_data *data);
-void create_child(t_data *data);
-void replace_stdin_of_child(t_data *data);
-void replace_stdout_of_child(t_data *data);
-void replace_stdin_save(int file_fd_to_replace_with);
-void replace_stdout_save(int file_fd_to_replace_with);
-void execute_command(t_data *data);
+void	resolve_path(t_data *data);
+void	create_child(t_data *data);
+void	replace_stdin_of_child(t_data *data);
+void	replace_stdout_of_child(t_data *data);
+void	replace_stdin_save(int file_fd_to_replace_with);
+void	replace_stdout_save(int file_fd_to_replace_with);
+void	execute_command(t_data *data);
 
 //ERROR HANDELING
-
-void exit_clean(t_data *data, char *error, int error_code);
+void	exit_clean(t_data *data, char *error, int error_code);
 
 // CLEANUP
-
 void	clean_data(t_data *data);
 
 #endif // PIPEX_H
