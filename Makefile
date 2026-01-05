@@ -7,7 +7,7 @@ NAME			=			pipex
 ###############################################################################
 
 CC				=			cc
-CFLAGS			=			-Wall -Werror -Wextra  -g #-fsanitize=address -g
+CFLAGS			=			-Wall -Werror -Wextra
 HEADERS			=			-I./include -I./libs/include
 LIBS			=			./libs
 LIBS_NAME		=			./libs/libs.a
