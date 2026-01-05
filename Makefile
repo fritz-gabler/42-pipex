@@ -58,7 +58,7 @@ $(OBJ_DIR)/%.o: %.c
 	@printf $(UP)$(CUT)
 
 $(LIBS_NAME):
-	@git submodule update --remote --init -q
+	@git submodule update --init -q
 	@$(MAKE) -C $(LIBS) -B
 
 ###############################################################################
