@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:06:46 by fgabler           #+#    #+#             */
-/*   Updated: 2026/01/02 16:48:11 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/05 12:52:11 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_data
 	t_child	first_child;
 	t_child	second_child;
 	int		pipe_fds[2];
-	int		child_pids[2];
+	pid_t	child_pids[2];
 	char	**envp;
 }	t_data;
 
