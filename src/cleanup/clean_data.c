@@ -6,7 +6,7 @@
 /*   By: fgabler <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:58:36 by fgabler           #+#    #+#             */
-/*   Updated: 2026/01/02 14:56:37 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/05 12:39:12 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	clean_data(t_data *data)
 
 static void	close_pipes(t_data *data)
 {
-	if (data->pipe_fds[0] != -1)
-		close(data->pipe_fds[0]);
-	if (data->pipe_fds[1] != -1)
-		close(data->pipe_fds[1]);
+	if (data->pipe_fds[READ] != -1)
+		close(data->pipe_fds[READ]);
+	if (data->pipe_fds[WRITE] != -1)
+		close(data->pipe_fds[WRITE]);
 }
 
 static void	clean_child(t_child *child)
