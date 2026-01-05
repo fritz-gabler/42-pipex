@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 09:40:18 by fritzgabler       #+#    #+#             */
-/*   Updated: 2026/01/04 17:19:36 by fgabler          ###   ########.fr       */
+/*   Updated: 2026/01/05 13:02:56 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	main(int argc, char **argv, char **envp)
 	input_validation(argc);
 	setup_struct(&data, argc, argv, envp);
 	fork_save(&data, FIRST_CHILD);
-	if (data.child_pids[FIRST_CHILD] == 0)
+	if (data.child_pids[FIRST_CHILD] == CHILD)
 		first_child(&data);
 	fork_save(&data, SECOND_CHILD);
-	if (data.child_pids[SECOND_CHILD] == 0)
+	if (data.child_pids[SECOND_CHILD] == CHILD)
 		second_child(&data);
+	clean_data(&data);
 	waitpid(data.child_pids[FIRST_CHILD], NULL, 0);
 	waitpid(data.child_pids[SECOND_CHILD], NULL, 0);
-	clean_data(&data);
 	return (0);
 }
